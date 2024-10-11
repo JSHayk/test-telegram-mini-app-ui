@@ -30,3 +30,7 @@ async function getAll() {
 
 const telegramData = getTelegramData();
 console.log(telegramData);
+
+document.querySelector("body").innerHTML = `
+    ${telegramData ? JSON.stringify(telegramData) : "No Data"}
+`;
