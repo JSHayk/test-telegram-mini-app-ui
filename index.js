@@ -2,13 +2,12 @@ const url = "https://66cf-62-89-17-18.ngrok-free.app/";
 
 function getTelegramData() {
   const Telegram = window.Telegram;
-  document.body.innerHTML = JSON.stringify(Telegram);
 
   if (Telegram) {
     window.Telegram.WebApp.ready();
     return {
-      initData: window.Telegram.initData,
-      userData: window.Telegram.initDataUnsafe,
+      initData: window.Telegram.WebApp.initData,
+      userData: window.Telegram.WebApp.initDataUnsafe,
     };
   }
 }
