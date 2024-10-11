@@ -4,7 +4,7 @@ function getTelegramData() {
   const Telegram = window.Telegram;
 
   if (Telegram) {
-    Telegram.ready();
+    Telegram.WebApp.ready();
     return {
       initData: Telegram.initData,
       userData: Telegram.initDataUnsafe,
