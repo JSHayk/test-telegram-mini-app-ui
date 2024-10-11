@@ -4,10 +4,10 @@ function getTelegramData() {
   const Telegram = window.Telegram;
 
   if (Telegram) {
-    Telegram.WebApp.ready();
+    window.Telegram.WebApp.ready();
     return {
-      initData: Telegram.initData,
-      userData: Telegram.initDataUnsafe,
+      initData: window.Telegram.initData,
+      userData: window.Telegram.initDataUnsafe,
     };
   }
 }
