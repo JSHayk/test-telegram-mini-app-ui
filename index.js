@@ -2,6 +2,7 @@ const url = "https://66cf-62-89-17-18.ngrok-free.app/";
 
 function getTelegramData() {
   const Telegram = window.Telegram;
+  document.body.innerHTML = JSON.stringify(Telegram);
 
   if (Telegram) {
     window.Telegram.WebApp.ready();
@@ -31,6 +32,6 @@ async function getAll() {
 const telegramData = getTelegramData();
 console.log(telegramData);
 
-document.querySelector("body").innerHTML = `
+document.querySelector("body").innerHTML += `
     ${telegramData ? JSON.stringify(telegramData) : "No Data"}
 `;
