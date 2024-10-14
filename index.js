@@ -17,7 +17,7 @@ function getTelegramData() {
 async function drawData(data) {
   try {
     const res = await data;
-    document.querySelector("body").innerHTML = JSON.stringify(res);
+    document.querySelector("body").innerHTML += JSON.stringify(res);
   } catch (err) {
     console.error(err);
   }
