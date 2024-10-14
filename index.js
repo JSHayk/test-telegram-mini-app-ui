@@ -14,9 +14,20 @@ function getTelegramData() {
   return {};
 }
 
+async function drawElement(selector, content) {
+  document.querySelector(selector).innerHTML = content;
+}
+
 async function drawData(data) {
   try {
     const res = await data;
+    const { userData } = res;
+    const drawData = userData?.user;
+
+    drawElement("full-name", `${drawData.first_name} ${drawData.last_name}`);
+    drawElement("username", drawData.username);
+    drawElement("id", id);
+
     document.querySelector("body").innerHTML += JSON.stringify(res);
   } catch (err) {
     console.error(err);
