@@ -27,8 +27,6 @@ async function drawData(data) {
     drawElement("full-name", `${drawData.first_name} ${drawData.last_name}`);
     drawElement("username", drawData.username);
     drawElement("id", id);
-
-    document.querySelector("body").innerHTML += JSON.stringify(res);
   } catch (err) {
     console.error(err);
   }
@@ -53,9 +51,6 @@ async function getAll() {
 async function login() {
   try {
     const telegramData = getTelegramData();
-    document.querySelector(
-      "body"
-    ).innerHTML += `Telegram API Data ${JSON.stringify(telegramData)}`;
     const res = await fetch(`${url}/auth`, {
       method: "POST",
       headers: new Headers({
