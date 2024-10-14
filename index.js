@@ -24,9 +24,9 @@ async function drawData(data) {
     const { userData } = res;
     const drawData = userData?.user;
     document.body.innerHTML += `TEST ${JSON.stringify(drawData)}`;
-    drawElement("full-name", `${drawData.first_name} ${drawData.last_name}`);
-    drawElement("username", drawData.username);
-    drawElement("id", id);
+    drawElement(".full-name", `${drawData.first_name} ${drawData.last_name}`);
+    drawElement(".username", drawData.username);
+    drawElement(".id", id);
   } catch (err) {
     console.error(err);
   }
