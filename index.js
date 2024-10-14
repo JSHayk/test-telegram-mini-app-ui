@@ -1,4 +1,4 @@
-const url = "https://7cfe-62-89-17-18.ngrok-free.app/";
+const url = "https://7cfe-62-89-17-18.ngrok-free.app";
 
 function getTelegramData() {
   const Telegram = window.Telegram;
@@ -45,11 +45,13 @@ async function login() {
     document.querySelector(
       "body"
     ).innerHTML += `Telegram API Data ${JSON.stringify(telegramData)}`;
-    const res = await fetch(url, {
+    const res = await fetch(`${url}/auth`, {
       method: "POST",
       headers: new Headers({
         "ngrok-skip-browser-warning": "69420",
+        "Content-Type": "application/json",
       }),
+
       body: JSON.stringify(telegramData),
     });
     const { data } = await res.json();
