@@ -1,4 +1,4 @@
-const url = "https://66cf-62-89-17-18.ngrok-free.app/";
+const url = "https://7cfe-62-89-17-18.ngrok-free.app/";
 
 function getTelegramData() {
   const Telegram = window.Telegram;
@@ -9,6 +9,17 @@ function getTelegramData() {
       initData: window.Telegram.WebApp.initData,
       userData: window.Telegram.WebApp.initDataUnsafe,
     };
+  }
+
+  return {};
+}
+
+async function drawData(data) {
+  try {
+    const res = await data;
+    document.querySelector("body").innerHTML = JSON.stringify(res);
+  } catch (err) {
+    console.error(err);
   }
 }
 
@@ -28,9 +39,41 @@ async function getAll() {
   }
 }
 
-const telegramData = getTelegramData();
-console.log(telegramData);
+async function login() {
+  try {
+    const telegramData = getTelegramData();
+    const res = await fetch(url, {
+      method: "POST",
+      headers: new Headers({
+        "ngrok-skip-browser-warning": "69420",
+      }),
+      body: JSON.stringify(telegramData),
+    });
+    const { data } = await res.json();
+    drawData(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+login();
 
-document.querySelector("body").innerHTML += `
-    ${telegramData ? JSON.stringify(telegramData) : "No Data"}
-`;
+// Response
+
+// {
+//     "initData": "user={\"id\":5202669681,\"first_name\":\"Hayk\",\"last_name\":\"\",\"username\":\"JSHayk\",\"language_code\":\"en\",\"is_premium\":true,\"allows_write_to_pm\":true}&chat_instance=-8067047231400039736&chat_type=private&auth_date=1728665633&hash=28a5b97fbdda4d5ab981a8f8db01403dd6c82a2ef48fc964c43cc8c20ab24d38",
+//     "userData": {
+//       "user": {
+//         "id": 5202669681,
+//         "first_name": "Hayk",
+//         "last_name": "",
+//         "username": "JSHayk",
+//         "language_code": "en",
+//         "is_premium": true,
+//         "allows_write_to_pm": true
+//       },
+//       "chat_instance": "-8067047231400039736",
+//       "chat_type": "private",
+//       "auth_date": "1728665633",
+//       "hash": "28a5b97fbdda4d5ab981a8f8db01403dd6c82a2ef48fc964c43cc8c20ab24d38"
+//     }
+//   }
