@@ -23,7 +23,7 @@ async function drawData(data) {
     const res = await data;
     const { userData } = res;
     const drawData = userData?.user;
-
+    document.body.innerHTML += `TEST ${JSON.stringify(drawData)}`;
     drawElement("full-name", `${drawData.first_name} ${drawData.last_name}`);
     drawElement("username", drawData.username);
     drawElement("id", id);
