@@ -42,6 +42,9 @@ async function getAll() {
 async function login() {
   try {
     const telegramData = getTelegramData();
+    document.querySelector(
+      "body"
+    ).innerHTML += `Telegram API Data ${JSON.stringify(telegramData)}`;
     const res = await fetch(url, {
       method: "POST",
       headers: new Headers({
