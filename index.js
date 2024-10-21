@@ -1,4 +1,4 @@
-const url = "https://7cfe-62-89-17-18.ngrok-free.app";
+const url = "https://a389-62-89-17-18.ngrok-free.app";
 
 function getTelegramData() {
   const Telegram = window.Telegram;
